@@ -1,0 +1,6 @@
+{
+  "name": "OPTIVEX AI",
+  "description": "OPTIVEX AI — See Beyond. Recognize Smarter. Browser-native AI face detection, multi-face image analysis, consent-based recognition, and detection analytics.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
