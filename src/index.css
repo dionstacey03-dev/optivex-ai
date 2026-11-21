@@ -13,16 +13,90 @@
     color-scheme: dark;
   }
 
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 12% 8%, rgba(8, 145, 178, 0.13), transparent 34rem),
+      radial-gradient(ellipse at 88% 72%, rgba(37, 99, 235, 0.10), transparent 38rem),
+      #070C17;
+  }
+
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
   }
 
-  .tabular-nums {
-    font-variant-numeric: tabular-nums;
+  .tabular-nums { font-variant-numeric: tabular-nums; }
+  .text-balance { text-wrap: balance; }
+}
+
+/* OPTIVEX glass design system */
+@layer components {
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(20, 36, 58, 0.76), rgba(10, 20, 36, 0.68));
+    border: 1px solid rgba(148, 190, 220, 0.16);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
 
-  .text-balance {
-    text-wrap: balance;
+  .glass-card {
+    background: linear-gradient(145deg, rgba(22, 40, 64, 0.76), rgba(11, 22, 39, 0.72));
+    border: 1px solid rgba(148, 190, 220, 0.17);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(34, 211, 238, 0.28);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22), 0 0 24px rgba(34, 211, 238, 0.045);
+  }
+
+  .glass-sidebar {
+    background: rgba(8, 16, 30, 0.78);
+    border-color: rgba(148, 190, 220, 0.13);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
+
+  .glass-topbar {
+    background: rgba(7, 12, 23, 0.78);
+    border-color: rgba(148, 190, 220, 0.14);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
+
+  .glass-input {
+    background: rgba(7, 16, 30, 0.72);
+    border: 1px solid rgba(148, 190, 220, 0.20);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .glass-input:focus {
+    border-color: rgba(34, 211, 238, 0.65);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.10);
+    outline: none;
+  }
+}
+
+/* Bring existing panel surfaces into the glass system without changing component behavior. */
+[class*="bg-[#0D1526]"] {
+  background: linear-gradient(145deg, rgba(22, 40, 64, 0.76), rgba(11, 22, 39, 0.72)) !important;
+  border-color: rgba(148, 190, 220, 0.17) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[class*="bg-[#121E36]"] {
+  background: rgba(18, 34, 55, 0.78) !important;
+  border-color: rgba(148, 190, 220, 0.20) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [class*="bg-[#0D1526]"]:hover {
+    border-color: rgba(34, 211, 238, 0.26) !important;
   }
 }
 
@@ -36,20 +110,20 @@
 }
 
 /* Subtle dark scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #080E1A; }
+::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+@media (max-width: 640px) {
+  .glass-card, .glass-panel {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #080E1A;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+@supports not ((backdrop-filter: blur(1px))) {
+  .glass-card, .glass-panel, .glass-sidebar, .glass-topbar {
+    background-color: #101d31;
+  }
 }
