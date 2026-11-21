@@ -32,7 +32,7 @@ export interface StatCardProps {
 
 export function StatCard({ label, value, detail, highlight = false }: StatCardProps) {
   return (
-    <div className="rounded-xl border border-slate-800/80 bg-[#0D1526] p-5">
+    <div className="glass-card rounded-xl p-5">
       <div className="text-xs font-medium text-slate-400">{label}</div>
       <div
         className={`mt-2 font-mono text-2xl font-semibold tracking-tight tabular-nums sm:text-3xl ${
@@ -110,15 +110,7 @@ export function OptivexLogo({ compact = false }: OptivexLogoProps) {
         aria-hidden="true"
         className="shrink-0"
       >
-        <rect
-          x="2"
-          y="2"
-          width="24"
-          height="24"
-          rx="6"
-          stroke="#22D3EE"
-          strokeWidth="1.75"
-        />
+        <rect x="2" y="2" width="24" height="24" rx="6" stroke="#22D3EE" strokeWidth="1.75" />
         <path
           d="M7 10V7H10M18 7H21V10M21 18V21H18M10 21H7V18"
           stroke="#E2E8F0"
