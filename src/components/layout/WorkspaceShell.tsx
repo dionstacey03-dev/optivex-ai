@@ -59,7 +59,7 @@ export function WorkspaceShell({
   };
 
   const renderSidebar = (isMobileDrawer: boolean) => (
-    <div className="flex h-full flex-col justify-between bg-[#080E1A] p-4">
+    <div className="flex h-full flex-col justify-between bg-[#080E1A] p-4 glass-sidebar">
       <div>
         <div className="flex items-center justify-between px-2 py-2">
           <button
@@ -95,7 +95,7 @@ export function WorkspaceShell({
                 onClick={() => handleSelect(item.id)}
                 className={`flex min-h-[42px] w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                   isActive
-                    ? 'bg-cyan-400/12 text-cyan-300'
+                    ? 'border border-cyan-300/15 bg-cyan-400/12 text-cyan-300 shadow-[inset_0_0_18px_rgba(34,211,238,0.05)]'
                     : 'text-slate-300 hover:bg-slate-800/50 hover:text-slate-50'
                 }`}
               >
@@ -173,7 +173,7 @@ export function WorkspaceShell({
             className="fixed inset-0 bg-black/70 backdrop-blur-xs"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <aside className="relative z-10 w-64 border-r border-slate-800 bg-[#080E1A]">
+          <aside className="relative z-10 w-64 border-r border-slate-800 bg-[#080E1A] glass-sidebar">
             {renderSidebar(true)}
           </aside>
         </div>
@@ -181,7 +181,7 @@ export function WorkspaceShell({
 
       {/* Main Content Area */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-slate-800/80 bg-[#070C17]/95 px-5 py-3.5 backdrop-blur-md lg:px-8">
+        <header className="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-slate-800/80 bg-[#070C17]/95 px-5 py-3.5 backdrop-blur-md glass-topbar lg:px-8">
           <div className="flex items-center gap-3 min-w-0">
             <button
               type="button"
@@ -193,9 +193,7 @@ export function WorkspaceShell({
             </button>
             <div className="flex items-center gap-2 text-xs sm:text-sm truncate">
               <span className="text-slate-400">OPTIVEX AI</span>
-              <span className="text-slate-600" aria-hidden="true">
-                /
-              </span>
+              <span className="text-slate-600" aria-hidden="true">/</span>
               <span className="font-medium text-slate-100 truncate">{activeNav.label}</span>
             </div>
           </div>
